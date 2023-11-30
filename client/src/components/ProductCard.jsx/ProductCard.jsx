@@ -4,7 +4,19 @@ import { Button } from 'primereact/button';
 import { Link } from 'react-router-dom';
 
 const ProductCard = ({ product }) => {
-    const header = <Link to={`/detail/${product.id}`}><img alt="Card" src={product.thumbnail} style={{ width: '10%', height: 'auto' }}/></Link>;
+     const cardStyle = {
+    width: '250px', 
+    height: '450px', 
+    marginTop:'50px',
+    marginBottom:'100px'
+  };
+
+  const imageStyle = {
+    width: '100%', 
+    height: '250px', 
+    objectFit: 'cover', 
+  };
+    const header = <Link to={`/detail/${product.id}`}><img alt="Card" src={product.thumbnail} style={imageStyle}/></Link>;
     const footer = (
      
       <>
@@ -14,8 +26,8 @@ const ProductCard = ({ product }) => {
     );
   
     return (
-      <div className="card  m-2">
-        <Card title={product.title} subTitle={product.brand} footer={footer} header={header}>
+      <div className="card  " style={cardStyle}>
+        <Card title={product.title} subTitle={product.brand} footer={footer} header={header} border-2>
           {/* <p className="m-0">{product.description}</p> */}
           <p className="m-0">Price: ${product.price}</p>
           <p className="m-0">Stock: {product.stock}</p>

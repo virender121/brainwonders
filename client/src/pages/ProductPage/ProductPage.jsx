@@ -24,11 +24,14 @@ const ProductPage = () => {
   }, [dispatch]);
 
   return (
-    <div className="flex flex-wrap">
+    <>
+    <div className=" flex flex-wrap " style={{display:'flex',flexWrap:'wrap',justifyContent:'space-around',alignItems:'center'}}>
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
     </div>
+   
+    </>
   );
 };
 
